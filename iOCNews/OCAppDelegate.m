@@ -33,9 +33,9 @@
 #import "OCAppDelegate.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "OCNewsHelper.h"
-#import <KSCrash/KSCrash.h>
-#import <KSCrash/KSCrashInstallationEmail.h>
-#import <KSCrash/KSCrashInstallation+Alert.h>
+//#import <KSCrash/KSCrash.h>
+//#import <KSCrash/KSCrashInstallationEmail.h>
+//#import <KSCrash/KSCrashInstallation+Alert.h>
 #import "PDKeychainBindings.h"
 #import "PHThemeManager.h"
 @import UserNotifications;
@@ -44,8 +44,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    KSCrashInstallation* installation = [self makeEmailInstallation];
-    [installation install];
+    //KSCrashInstallation* installation = [self makeEmailInstallation];
+    //[installation install];
     
     UISplitViewController *svc = (UISplitViewController *)self.window.rootViewController;
     svc.maximumPrimaryColumnWidth = svc.primaryColumnWidth;
@@ -66,13 +66,13 @@
 
     [self writeCss];
     
-    [installation sendAllReportsWithCompletion:^(NSArray* reports, BOOL completed, NSError* error) {
-        if(completed) {
-//            NSLog(@"Sent %d reports", (int)[reports count]);
-        } else{
-//            NSLog(@"Failed to send reports: %@", error);
-        }
-    }];
+//    [installation sendAllReportsWithCompletion:^(NSArray* reports, BOOL completed, NSError* error) {
+//        if(completed) {
+////            NSLog(@"Sent %d reports", (int)[reports count]);
+//        } else{
+////            NSLog(@"Failed to send reports: %@", error);
+//        }
+//    }];
     
     [PHThemeManager sharedManager];
     return YES;
@@ -113,25 +113,25 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (KSCrashInstallation*) makeEmailInstallation {
-    NSString* emailAddress = @"support@peterandlinda.com";
-    
-    KSCrashInstallationEmail* email = [KSCrashInstallationEmail sharedInstance];
-    email.recipients = @[emailAddress];
-    email.subject = @"CloudNews Crash Report";
-    email.message = @"<Please provide as much details as possible about what you were doing when the crash occurred.>";
-    email.filenameFmt = @"crash-report-%d.txt.gz";
-    
-    [email addConditionalAlertWithTitle:@"Crash Detected"
-                                message:@"CloudNews crashed last time it was launched. Do you want to send a report to the developer?"
-                              yesAnswer:@"Yes, please!"
-                               noAnswer:@"No thanks"];
-    
-    // Uncomment to send Apple style reports instead of JSON.
-    [email setReportStyle:KSCrashEmailReportStyleApple useDefaultFilenameFormat:YES];
-    
-    return email;
-}
+//- (KSCrashInstallation*) makeEmailInstallation {
+//    NSString* emailAddress = @"support@peterandlinda.com";
+//
+//    KSCrashInstallationEmail* email = [KSCrashInstallationEmail sharedInstance];
+//    email.recipients = @[emailAddress];
+//    email.subject = @"CloudNews Crash Report";
+//    email.message = @"<Please provide as much details as possible about what you were doing when the crash occurred.>";
+//    email.filenameFmt = @"crash-report-%d.txt.gz";
+//
+//    [email addConditionalAlertWithTitle:@"Crash Detected"
+//                                message:@"CloudNews crashed last time it was launched. Do you want to send a report to the developer?"
+//                              yesAnswer:@"Yes, please!"
+//                               noAnswer:@"No thanks"];
+//
+//    // Uncomment to send Apple style reports instead of JSON.
+//    [email setReportStyle:KSCrashEmailReportStyleApple useDefaultFilenameFormat:YES];
+//
+//    return email;
+//}
 
 - (void) writeCss {
     NSBundle *appBundle = [NSBundle mainBundle];
