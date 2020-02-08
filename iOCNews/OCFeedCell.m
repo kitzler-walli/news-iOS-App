@@ -85,7 +85,7 @@
     } else {
         self.imageView.frame = CGRectZero;
     }
-    int accessoryOffset = 15;
+    int accessoryOffset = 0;
     if (self.accessoryType == UITableViewCellAccessoryNone) {
         accessoryOffset = -18;
     }
