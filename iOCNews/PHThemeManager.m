@@ -35,7 +35,7 @@
 #define kPHPopoverButtonColorArray     @[kPHWhitePopoverButtonColor, kPHSepiaPopoverButtonColor, kPHNightPopoverButtonColor]
 #define kPHPopoverBorderColorArray     @[kPHWhitePopoverBorderColor, kPHSepiaPopoverBorderColor, kPHNightPopoverBorderColor]
 
-#define kPHUnreadTextColorArray        @[[UIColor darkTextColor], [UIColor darkTextColor], [UIColor lightTextColor]]
+#define kPHUnreadTextColorArray        @[[UIColor darkTextColor], [UIColor darkTextColor], [UIColor whiteColor]]
 #define kPHReadTextColorArray          @[[UIColor colorWithWhite:0.0 alpha:0.40], [UIColor colorWithWhite:0.41 alpha:1.0], [UIColor colorWithWhite:0.41 alpha:1.0]]
 
 #define kPHSwitchTintColorArray        @[kPHWhitePopoverBorderColor, kPHSepiaPopoverBorderColor, kPHNightIconColor]
